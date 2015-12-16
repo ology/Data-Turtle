@@ -2,6 +2,8 @@ package Data::Turtle;
 
 use Moo;
 
+our $VERSION = '0.01';
+
 use constant K => 3.14159265358979323846 / 180;
 
 =head1 NAME
