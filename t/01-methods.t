@@ -51,8 +51,8 @@ cmp_ok $t->heading, '==', -315, 'mirror';
 
 $t->forward(10);
 @x = $t->position;
-cmp_ok $x[0], '==', 257, 'forward';
-cmp_ok $x[1], '==', 257, 'forward';
+cmp_ok $x[0], '==', 258, 'forward';
+cmp_ok $x[1], '==', 258, 'forward';
 
 $t->backward(10);
 @x = $t->position;
