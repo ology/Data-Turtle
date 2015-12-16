@@ -6,7 +6,7 @@ use constant K => 3.14159265358979323846 / 180;
 
 =head1 NAME
 
-Turtle - Basic Turtle Movement and State Operations
+Turtle - Turtle Movement and State Operations
 
 =head1 SYNOPSIS
 
@@ -217,8 +217,8 @@ Return the following settings as a list:
 sub get_state {
     my $self = shift;
     return
-        $self->x,
-        $self->y,
+        int($self->x),
+        int($self->y),
         $self->heading,
         $self->pen_status,
         $self->pen_color,
@@ -320,8 +320,8 @@ sub goto {
 
     if ( $self->pen_status == 1 ) {
         return
-            $xo, $yo,
-            $self->x, $self->y,
+            int($xo), int($yo),
+            int($self->x), int($self->y),
             $self->pen_color, $self->pen_size;
     }
 }
