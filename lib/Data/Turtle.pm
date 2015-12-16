@@ -32,8 +32,8 @@ Turtle - Turtle Movement and State Operations
 This module enables basic turtle movement and state operations without requiring
 any particular graphics package.
 
-The methods don't draw anything per se.  They output coordinates and values for
-line drawing by your favorite graphics package.
+The methods don't draw anything per se.  They set or output coordinates and
+values for line drawing by your favorite graphics package.
 
 =head1 ATTRIBUTES
 
