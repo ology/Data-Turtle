@@ -1,6 +1,8 @@
 Changes for Data::Turtle:
 
 {{$NEXT}}
+    - Use POSIX::ceil() instead of int().
+    - Adjust SYNOPSIS code.
 
 0.0101 2015-12-15
     - Added eg/synopsis-gd.
