@@ -2,6 +2,7 @@ Changes for Data::Turtle:
 
 {{$NEXT}}
     - Added eg/synopsis-gd
+    - Added eg/synopsis-imager
     - Improved documentation.
 
 0.01  2015-12-15
