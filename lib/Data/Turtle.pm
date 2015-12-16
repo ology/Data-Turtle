@@ -26,7 +26,7 @@ Turtle - Turtle Movement and State Operations
   $turtle->goto( 10, 10 );
   $turtle->mirror;
   $turtle->backward(10);
-  my @state = $turtle->get_state;
+  my ( $x, $y, $heading, $pen_status, $pen_color, $pen_size ) = $turtle->get_state;
   $turtle->set_state( $x, $y, $heading, $pen_status, $pen_color, $pen_size );
 
 =head1 DESCRIPTION
