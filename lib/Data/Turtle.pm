@@ -19,7 +19,8 @@ Turtle - Turtle Movement and State Operations
   $turtle->forward(10);
   $turtle->pen_down;
   for my $i ( 1 .. 4 ) {
-      $turtle->forward(50);
+      my @line = $turtle->forward(50);
+      # If there is a line, draw it...
       $turtle->right(90);
   }
   $turtle->pen_up;
@@ -37,7 +38,8 @@ any particular graphics package.
 The methods don't draw anything per se.  They set or output coordinates and
 values for line drawing by your favorite graphics package.
 
-Please see the F<eg/> distribution directory for example code, with L<GD>.
+Please see the F<eg/> distribution directory for example code, with L<GD> and
+L<Imager>.
 
 =head1 ATTRIBUTES
 
