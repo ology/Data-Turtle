@@ -1,4 +1,8 @@
 Changes for Data::Turtle
 
 {{$NEXT}}
+    - Added eg/synopsis-gd
+    - Improved documentation.
+
+0.01  2015-12-15
     - Moved from perlsonal development repo.
