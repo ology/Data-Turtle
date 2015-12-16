@@ -39,9 +39,9 @@ values for line drawing by your favorite graphics package.
 
 =head1 ATTRIBUTES
 
-=head2 x, y, heading
+=head2 width, height
 
-Coordinate parameters.
+Drawing surface dimensions.
 
 =cut
 
@@ -53,6 +53,13 @@ has height => (
     is => 'rw',
     default => sub { 500 },
 );
+
+=head2 x, y, heading
+
+Coordinate parameters.
+
+=cut
+
 has x => (
     is => 'rw',
     lazy => 1,
