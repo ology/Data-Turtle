@@ -20,14 +20,17 @@ my $motion = {
 my %rule = (
 #    A => 'BA',
 #    B => 'AB',
-    A => 'S[-A][+A]',
+    A => 'GS[-A][+B]',
+    G => 'GS',
+    B => 'C',
+    C => 'A',
 );
 
 my $turtle = Data::Turtle->new(
     width  => $width,
     height => $height,
 );
-$turtle->backward( 3 * $motion->{distance} );
+$turtle->goto( $width / 2, $height );
 
 my $img = GD::Image->new( $width, $height );
 
