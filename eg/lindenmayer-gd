@@ -20,10 +20,10 @@ my $motion = {
 my %rule = (
 #    A => 'BA',
 #    B => 'AB',
-    A => 'GS[-A][+B]',
-    G => 'GS',
-    B => 'C',
-    C => 'A',
+    A => 'GS[-A][+A]',
+    G => 'S',
+#    B => 'C',
+#    C => 'A',
 );
 
 my $turtle = Data::Turtle->new(
