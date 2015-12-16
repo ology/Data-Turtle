@@ -1,8 +1,9 @@
 package Data::Turtle;
 
 use Moo;
+use POSIX qw( ceil );
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 
 use constant K => 3.14159265358979323846 / 180;
 
@@ -214,7 +215,7 @@ Return the current pen position as a list of the x and y values.
 
 sub position {
     my $self = shift;
-    return int($self->x), int($self->y);
+    return ceil($self->x), ceil($self->y);
 }
 
 =head2 get_state()
@@ -230,8 +231,8 @@ Return the following settings as a list:
 sub get_state {
     my $self = shift;
     return
-        int($self->x),
-        int($self->y),
+        ceil($self->x),
+        ceil($self->y),
         $self->heading,
         $self->pen_status,
         $self->pen_color,
@@ -280,8 +281,8 @@ sub forward {
 
     if ( $self->pen_status == 1 ) {
         return
-            int($xo), int($yo),
-            int($self->x), int($self->y),
+            ceil($xo), ceil($yo),
+            ceil($self->x), ceil($self->y),
             $self->pen_color, $self->pen_size;
     }
 }
@@ -333,8 +334,8 @@ sub goto {
 
     if ( $self->pen_status == 1 ) {
         return
-            int($xo), int($yo),
-            int($self->x), int($self->y),
+            ceil($xo), ceil($yo),
+            ceil($self->x), ceil($self->y),
             $self->pen_color, $self->pen_size;
     }
 }
