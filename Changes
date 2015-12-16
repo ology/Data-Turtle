@@ -1,7 +1,7 @@
 Changes for Data::Turtle:
 
 {{$NEXT}}
-    - Add eg/lsys-gd
+    - Add eg/lindenmayer-gd
 
 0.0102 2015-12-16
     - Use POSIX::ceil() instead of int().
