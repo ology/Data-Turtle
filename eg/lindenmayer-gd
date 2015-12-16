@@ -29,8 +29,9 @@ my %rule = (
 my $turtle = Data::Turtle->new(
     width  => $width,
     height => $height,
+    x      => $width / 2,
+    y      => $height,
 );
-$turtle->goto( $width / 2, $height );
 
 my $img = GD::Image->new( $width, $height );
 
