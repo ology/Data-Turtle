@@ -2,7 +2,7 @@ package Data::Turtle;
 
 use Moo;
 
-our $VERSION = '0.01';
+our $VERSION = '0.0101';
 
 use constant K => 3.14159265358979323846 / 180;
 
@@ -13,7 +13,7 @@ Turtle - Turtle Movement and State Operations
 =head1 SYNOPSIS
 
   use Data::Turtle;
-  my $turtle = Turtle->new;
+  my $turtle = Data::Turtle->new;
   $turtle->pen_up;
   $turtle->turn(45);
   $turtle->forward(10);
@@ -36,6 +36,8 @@ any particular graphics package.
 
 The methods don't draw anything per se.  They set or output coordinates and
 values for line drawing by your favorite graphics package.
+
+Please see the F<eg/> distribution directory for example code, with L<GD>.
 
 =head1 ATTRIBUTES
 
