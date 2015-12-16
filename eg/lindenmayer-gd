@@ -7,8 +7,15 @@ use GD;
 
 my $repetitions = shift || 1;
 my $string      = shift || 'A';
+my $distance    = shift || 20;
+my $theta       = shift || 20;
 my $width       = shift || 500;
 my $height      = shift || 500;
+
+my $motion = {
+    distance => $distance,
+    theta    => $theta,
+};
 
 my %rule = (
 #    A => 'BA',
@@ -16,15 +23,11 @@ my %rule = (
     A => 'S[-A][+A]',
 );
 
-my $motion = {
-    distance => 40, 
-    theta    => 45, 
-};
-
 my $turtle = Data::Turtle->new(
     width  => $width,
     height => $height,
 );
+$turtle->backward( 3 * $motion->{distance} );
 
 my $img = GD::Image->new( $width, $height );
 
