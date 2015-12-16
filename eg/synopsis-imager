@@ -25,6 +25,11 @@ my $turtle = Data::Turtle->new(
 $turtle->pen_up;
 $turtle->turn(45);
 $turtle->forward(10);
+$turtle->goto( 10, 10 );
+$turtle->mirror;
+$turtle->backward(10);
+#my ( $x, $y, $heading, $pen_status, $pen_color, $pen_size ) = $turtle->get_state;
+#$turtle->set_state( $x, $y, $heading, $pen_status, $pen_color, $pen_size );
 $turtle->pen_down;
 for my $i ( 1 .. 4 ) {
     my @line = $turtle->forward(50);
@@ -41,12 +46,6 @@ for my $i ( 1 .. 4 ) {
     }
     $turtle->right(90);
 }
-#$turtle->pen_up;
-#$turtle->goto( 10, 10 );
-#$turtle->mirror;
-#$turtle->backward(10);
-#my ( $x, $y, $heading, $pen_status, $pen_color, $pen_size ) = $turtle->get_state;
-#$turtle->set_state( $x, $y, $heading, $pen_status, $pen_color, $pen_size );
 
 my $type = 'png';
 $img->write( type => $type, file => "$0.$type")
