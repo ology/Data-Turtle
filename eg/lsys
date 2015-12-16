@@ -3,37 +3,60 @@ use strict;
 use warnings;
 
 use Data::Turtle;
+use GD;
 
 my $repetitions = shift || 1;
 my $string      = shift || 'A';
+my $width       = shift || 500;
+my $height      = shift || 500;
 
 my %rule = (
+#    A => 'BA',
+#    B => 'AB',
     A => 'S[-A][+A]',
 );
 
-my $changes = {
+my $motion = {
     distance => 40, 
-    theta    => 0.2, 
+    theta    => 45, 
 };
 
-my $turtle = Data::Turtle->new;
+my $turtle = Data::Turtle->new(
+    width  => $width,
+    height => $height,
+);
+
+my $img = GD::Image->new( $width, $height );
+
+my %color = (
+    white => $img->colorAllocate( 255, 255, 255 ),
+    black => $img->colorAllocate( 0, 0, 0 ),
+);
 
 my @statestack;
 
 my %translate = (
-    'S' => sub { $turtle->forward( $changes->{distance} ) },
-    '-' => sub { $turtle->turn( - $changes->{theta} ) },
-    '+' => sub { $turtle->turn( $changes->{theta} ) },
-    'M' => sub { $turtle->mirror() },
-    '[' => sub { push @statestack, [ $turtle->state() ] },
+    'S' => sub {
+        my @line = $turtle->forward( $motion->{distance} );
+        if ( $turtle->pen_status == 1 && @line ) {
+            $img->setThickness( $line[5] );
+            $img->line( @line[ 0 .. 3 ], $color{ $line[4] } );
+        }
+    },
+    '-' => sub { $turtle->turn( - $motion->{theta} ) },
+    '+' => sub { $turtle->turn( $motion->{theta} ) },
+    'M' => sub { $turtle->mirror },
+    '[' => sub { push @statestack, [ $turtle->get_state ] },
     ']' => sub { $turtle->set_state( @{ pop @statestack } ) },
 );
 
 for ( 1 .. $repetitions ) {
     $string =~ s/./defined($rule{$&}) ? $rule{$&} : $&/eg;
 }
-warn __LINE__,". String: ","$string\n";
+#warn __LINE__,". String: ","$string\n";
 
-#for my $command ( split( //, $string ) ) {
-#    $translate{$command}->() if $translate{$command};
-#}
+for my $command ( split //, $string ) {
+    $translate{$command}->() if $translate{$command};
+}
+
+print $img->png;
