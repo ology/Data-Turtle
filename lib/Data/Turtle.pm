@@ -155,7 +155,7 @@ Lower the pen head to begin drawing.
 =cut
 
 sub pen_down {
-    my $self = shift;          
+    my $self = shift;
     $self->pen_status(1);
 }
 
