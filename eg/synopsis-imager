@@ -25,7 +25,7 @@ my $turtle = Data::Turtle->new(
 $turtle->pen_up;
 $turtle->turn(45);
 $turtle->forward(10);
-$turtle->goto( 10, 10 );
+$turtle->goto( 100, 100 );
 $turtle->mirror;
 $turtle->backward(10);
 #my ( $x, $y, $heading, $pen_status, $pen_color, $pen_size ) = $turtle->get_state;

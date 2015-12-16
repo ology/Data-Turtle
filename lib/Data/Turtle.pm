@@ -18,7 +18,7 @@ Turtle - Turtle Movement and State Operations
   $turtle->pen_up;
   $turtle->turn(45);
   $turtle->forward(10);
-  $turtle->goto( 10, 10 );
+  $turtle->goto( 100, 100 );
   $turtle->mirror;
   $turtle->backward(10);
   $turtle->pen_down;
