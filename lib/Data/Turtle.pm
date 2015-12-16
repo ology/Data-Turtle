@@ -142,7 +142,7 @@ Raise the pen head to stop drawing.
 =cut
 
 sub pen_up {
-    my $self = shift;          
+    my $self = shift;
     $self->pen_status(0);
 }
 
