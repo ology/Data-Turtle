@@ -1,6 +1,8 @@
 Changes for Data::Turtle:
 
 {{$NEXT}}
+
+0.0104 2015-12-16
     - (Attempt to) Fix a sometimes failing test.
     - Improve documentation.
 
