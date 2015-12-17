@@ -1,7 +1,7 @@
 Changes for Data::Turtle:
 
 {{$NEXT}}
-    - Fix sometimes failing test.
+    - (Attempt to) Fix a sometimes failing test.
     - Improve documentation.
 
 0.0103 2015-12-16
