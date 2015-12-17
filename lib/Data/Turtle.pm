@@ -95,6 +95,7 @@ has width => (
     is => 'rw',
     default => sub { 500 },
 );
+
 has height => (
     is => 'rw',
     default => sub { 500 },
@@ -119,11 +120,13 @@ has x => (
     lazy => 1,
     builder => \&_init_x,
 );
+
 has y => (
     is => 'rw',
     lazy => 1,
     builder => \&_init_y,
 );
+
 has heading => (
     is => 'rw',
     builder => \&_init_heading,
@@ -145,10 +148,12 @@ has pen_status => (
     is => 'rw',
     default => sub { 1 }, # Pen down
 );
+
 has pen_color => (
     is => 'rw',
     default => sub { 'black' },
 );
+
 has pen_size => (
     is => 'rw',
     default => sub { 1 },
