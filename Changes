@@ -1,6 +1,10 @@
 Changes for Data::Turtle:
 
 {{$NEXT}}
+    - Fix sometimes failing test.
+    - Improve documentation.
+
+0.0103 2015-12-16
     - Add eg/lindenmayer-gd
 
 0.0102 2015-12-16
