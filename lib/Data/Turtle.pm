@@ -18,13 +18,13 @@ Turtle - Turtle Movement and State Operations
   $turtle->pen_up;
   $turtle->turn(45);
   $turtle->forward(10);
-  $turtle->goto( 100, 100 );
+  $turtle->goto(100, 100);
   $turtle->mirror;
   $turtle->backward(10);
   $turtle->pen_down;
-  my ( $x, $y, $heading, $pen_status, $pen_color, $pen_size ) = $turtle->get_state;
-  $turtle->set_state( $x, $y, $heading, $pen_status, $pen_color, $pen_size );
-  for my $i ( 1 .. 4 ) {
+  my ($x, $y, $heading, $status, $color, $size) = $turtle->get_state;
+  $turtle->set_state($x, $y, $heading, $status, $color, $size);
+  for my $i (1 .. 4) {
       my @line = $turtle->forward(50);
       # If there is a line and the pen is down, draw it!
       $turtle->right(90);
@@ -41,11 +41,53 @@ values for line drawing by your favorite graphics package.
 Please see the F<eg/> distribution directory for example code, with L<GD> and
 L<Imager>.
 
-=head1 ATTRIBUTES
+=cut
 
-=head2 width, height
+sub _init_x {
+    my $self = shift;
+    return $self->width / 2;
+}
 
-Drawing surface dimensions.
+sub _init_y {
+    my $self = shift;
+    return $self->height / 2;
+}
+
+sub _init_heading {
+    my $self = shift;
+    return -90 % 360;
+}
+
+=head1 METHODS
+
+=head2 new
+
+  Data::Turtle->new();
+  Data::Turtle->new(
+    width      => $width,
+    height     => $height,
+    x          => $x0,
+    y          => $y0,
+    heading    => $heading,
+    pen_status => $pen_status,
+    pen_color  => $pen_color,
+    pen_size   => $pen_size,
+  );
+
+Return a C<Data::Turtle> object.
+
+Attributes:
+
+=over 4
+
+=item * width, height
+
+Drawing surface dimensions.  Defaults:
+
+  width  = 500
+  height = 500
+
+=back
 
 =cut
 
@@ -58,9 +100,17 @@ has height => (
     default => sub { 500 },
 );
 
-=head2 x, y, heading
+=over 4
 
-Coordinate parameters.
+=item * x, y, heading
+
+Coordinate parameters.  Defaults:
+
+  x       = width / 2
+  y       = height / 2
+  heading = 0 (degrees)
+
+=back
 
 =cut
 
@@ -79,9 +129,15 @@ has heading => (
     builder => \&_init_heading,
 );
 
-=head2 pen_status
+=over 4
 
-Is the pen is up or down?
+=item * pen_status, pen_color, pen_size
+
+Is the pen is up or down?  Default: 1 (down position)
+
+Pen properties.  Defaults: pen_color = the string 'black', pen_size = 1 (pixel)
+
+=back
 
 =cut
 
@@ -89,13 +145,6 @@ has pen_status => (
     is => 'rw',
     default => sub { 1 }, # Pen down
 );
-
-=head2 pen_color, pen_size
-
-Pen properties.
-
-=cut
-
 has pen_color => (
     is => 'rw',
     default => sub { 'black' },
@@ -104,23 +153,6 @@ has pen_size => (
     is => 'rw',
     default => sub { 1 },
 );
-
-sub _init_x {
-    my $self = shift;
-    return $self->width / 2;
-}
-
-sub _init_y {
-    my $self = shift;
-    return $self->height / 2;
-}
-
-sub _init_heading {
-    my $self = shift;
-    return -90 % 360;
-}
-
-=head1 METHODS
 
 =head2 home
 
