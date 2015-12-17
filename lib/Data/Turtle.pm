@@ -122,7 +122,7 @@ sub _init_heading {
 
 =head1 METHODS
 
-=head2 home()
+=head2 home
 
   $turtle->home;
 
@@ -137,7 +137,7 @@ sub home {
     $self->heading( $self->_init_heading );
 }
 
-=head2 pen_up()
+=head2 pen_up
 
   $turtle->pen_up;
 
@@ -150,7 +150,7 @@ sub pen_up {
     $self->pen_status(0);
 }
 
-=head2 pen_down()
+=head2 pen_down
 
   $turtle->pen_down;
 
@@ -163,7 +163,7 @@ sub pen_down {
     $self->pen_status(1);
 }
 
-=head2 turn()
+=head2 turn
 
   $turtle->right($degrees);
 
@@ -177,7 +177,7 @@ sub turn {
     $self->heading( ( $self->heading + $degrees ) % 360 );
 }
 
-=head2 right()
+=head2 right
 
   $turtle->right($degrees);
 
@@ -190,7 +190,7 @@ sub right {
     $self->turn(@_);
 }
 
-=head2 left()
+=head2 left
 
   $turtle->left($degrees);
 
@@ -204,7 +204,7 @@ sub left {
     $self->heading( ( $self->heading - $degrees ) % 360 );
 }
 
-=head2 position()
+=head2 position
 
   @pos = $turtle->position;
 
@@ -217,7 +217,7 @@ sub position {
     return ceil($self->x), ceil($self->y);
 }
 
-=head2 get_state()
+=head2 get_state
 
   @state = $turtle->get_state;
 
@@ -238,7 +238,7 @@ sub get_state {
         $self->pen_size;
 }
 
-=head2 set_state()
+=head2 set_state
 
   $turtle->set_state( $x, $y, $heading, $pen_status, $pen_color, $pen_size );
 
@@ -257,7 +257,7 @@ sub set_state {
     $self->pen_size($pen_size);
 }
 
-=head2 forward()
+=head2 forward
 
   @line = $turtle->forward($steps);
 
@@ -286,7 +286,7 @@ sub forward {
     }
 }
 
-=head2 backward()
+=head2 backward
 
   @line = $turtle->backward($steps);
 
@@ -300,7 +300,7 @@ sub backward {
     $self->forward( - $step )
 }
 
-=head2 mirror()
+=head2 mirror
 
   $turtle->mirror;
 
@@ -313,7 +313,7 @@ sub mirror {
     $self->heading( $self->heading * -1 );
 }
 
-=head2 goto()
+=head2 goto
 
   @line = $turtle->goto( $x, $y );
 
