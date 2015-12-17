@@ -8,7 +8,17 @@ use_ok 'Data::Turtle';
 
 my $t = Data::Turtle->new;
 
-my @x = $t->goto( 10, 10 );
+$t->forward(10);
+my @x = $t->position;
+cmp_ok $x[0], '==', 250, 'forward x';
+cmp_ok $x[1], '==', 240, 'forward y';
+
+$t->backward(10);
+@x = $t->position;
+cmp_ok $x[0], '==', 250, 'backward x';
+cmp_ok $x[1], '==', 250, 'backward y';
+
+@x = $t->goto( 10, 10 );
 
 cmp_ok $x[0], '==', 250, 'goto';
 cmp_ok $x[1], '==', 250, 'goto';
@@ -48,16 +58,6 @@ cmp_ok $x[1], '==', 250, 'position';
 
 $t->mirror;
 cmp_ok $t->heading, '==', -315, 'mirror';
-
-$t->forward(10);
-@x = $t->position;
-cmp_ok $x[0], '==', 258, 'forward';
-cmp_ok $x[1], '==', 258, 'forward';
-
-$t->backward(10);
-@x = $t->position;
-cmp_ok $x[0], '==', 250, 'backward';
-cmp_ok $x[1], '==', 250, 'backward';
 
 $t->set_state( 10, 10, 10, 0, 'red', 10 );
 @x = $t->get_state;
