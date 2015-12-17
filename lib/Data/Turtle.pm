@@ -3,7 +3,7 @@ package Data::Turtle;
 use Moo;
 use POSIX qw( ceil );
 
-our $VERSION = '0.0103';
+our $VERSION = '0.0104';
 
 use constant K => 3.14159265358979323846 / 180;
 
@@ -26,7 +26,7 @@ Turtle - Turtle Movement and State Operations
   $turtle->set_state( $x, $y, $heading, $pen_status, $pen_color, $pen_size );
   for my $i ( 1 .. 4 ) {
       my @line = $turtle->forward(50);
-      # If there is a line, draw it...
+      # If there is a line and the pen is down, draw it!
       $turtle->right(90);
   }
 
