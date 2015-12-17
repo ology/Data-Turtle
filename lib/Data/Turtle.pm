@@ -108,7 +108,7 @@ Coordinate parameters.  Defaults:
 
   x       = width / 2
   y       = height / 2
-  heading = 0 (degrees)
+  heading = 270 (degrees)
 
 =back
 
