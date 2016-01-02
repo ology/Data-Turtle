@@ -9,7 +9,7 @@ use constant K => 3.14159265358979323846 / 180;
 
 =head1 NAME
 
-Turtle - Turtle Movement and State Operations
+Data::Turtle - Turtle Movement and State Operations
 
 =head1 SYNOPSIS
 
