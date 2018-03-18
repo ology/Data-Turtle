@@ -59,6 +59,7 @@ my $img = GD::Image->new( $width, $height );
 
 my %color = (
     white => $img->colorAllocate( 255, 255, 255 ),
+    black => $img->colorAllocate( 0, 0, 0 ),
 );
 
 $img->transparent( $color{white} );
