@@ -18,9 +18,9 @@ my $motion = {
 };
 
 my %rule = (
-    # Branches: start=A
-#    A => 'GF[-A][+A]',
-#    G => 'F',
+    # Branches: start=X
+#    X => 'YF[-X][+X]',
+#    Y => 'F',
 
     # Koch curve: start=F, distance=10, theta=90
 #    F => 'F+F-F-F+F',
