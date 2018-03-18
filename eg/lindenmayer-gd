@@ -5,10 +5,10 @@ use warnings;
 use Data::Turtle;
 use GD;
 
-my $repetitions = shift || 1;
-my $string      = shift || 'A';
-my $distance    = shift || 20;
-my $theta       = shift || 20;
+my $repetitions = shift || 6;
+my $string      = shift || 'X';
+my $distance    = shift || 3;
+my $theta       = shift || 25;
 my $width       = shift || 500;
 my $height      = shift || 500;
 
