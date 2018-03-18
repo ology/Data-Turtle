@@ -3,7 +3,7 @@ package Data::Turtle;
 use Moo;
 use POSIX qw( ceil );
 
-our $VERSION = '0.0104';
+our $VERSION = '0.0105';
 
 use constant K => 3.14159265358979323846 / 180;
 
