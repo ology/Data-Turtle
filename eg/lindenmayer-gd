@@ -85,7 +85,7 @@ for ( 1 .. $repeat ) {
 warn "$start\n";
 
 for my $command ( split //, $start ) {
-    $translate{$command}->() if $translate{$command};
+    $translate{$command}->() if exists $translate{$command};
 }
 
 print $img->png;
