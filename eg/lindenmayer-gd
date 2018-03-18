@@ -6,7 +6,7 @@ use Data::Turtle;
 use GD;
 
 my $repetitions = shift || 6;
-my $string      = shift || 'X';
+my $start       = shift || 'X';
 my $distance    = shift || 3;
 my $theta       = shift || 25;
 my $width       = shift || 500;
@@ -37,7 +37,7 @@ my %rule = (
 #    F => 'G-F-G',
 #    G => 'F+G+F',
 
-    # Sierpiński triangle: start=F-G-G, distance=5, theta=120
+    # Sierpiński triangle: start=F-G-G, distance=4, theta=120
 #    F => 'F-G+F+G-F',
 #    G => 'GG',
 );
@@ -84,11 +84,11 @@ my %translate = (
 );
 
 for ( 1 .. $repetitions ) {
-    $string =~ s/./defined($rule{$&}) ? $rule{$&} : $&/eg;
+    $start =~ s/./defined($rule{$&}) ? $rule{$&} : $&/eg;
 }
-warn(__PACKAGE__,' L',__LINE__,". String: ",$string,"\n");
+warn(__PACKAGE__,' L',__LINE__,". String: ",$start,"\n");
 
-for my $command ( split //, $string ) {
+for my $command ( split //, $start ) {
     $translate{$command}->() if $translate{$command};
 }
 
