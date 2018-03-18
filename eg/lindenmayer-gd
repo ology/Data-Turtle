@@ -19,15 +19,19 @@ my $motion = {
 
 my %rule = (
     # Branches: start=A
-    A => 'GF[-A][+A]',
-    G => 'F',
+#    A => 'GF[-A][+A]',
+#    G => 'F',
 
     # Koch curve: start=F, distance=10, theta=90
 #    F => 'F+F-F-F+F',
 
-    # Fractal plant: start: X, distance=3, theta=25
-#    X => 'F[−X][X]F[−X]+FX',
-#    F => 'FF',
+    # Fractal plant: start=X, distance=3, theta=25
+    X => 'F[-X][X]F[-X]+FX',
+    F => 'FF',
+
+    # Dragon curve: start=FX, distance=10, theta=90
+#    X => 'X+YF+',
+#    Y => '-FX-Y',
 );
 
 my $turtle = Data::Turtle->new(
