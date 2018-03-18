@@ -38,6 +38,14 @@ my %rule = (
     # Sierpiński triangle: start=F-G-G, distance=4, theta=120
 #    F => 'F-G+F+G-F',
 #    G => 'GG',
+
+    # Koch snowflake: start=F++F++F, , distance=3, theta=60
+#    F => 'F-F++F-F',
+#    X => 'FF',
+
+    # Sierpiński carpet: start=F, distance=4, theta=90
+#    F => 'F+F-F-F-G+F+F+F-F',
+#    G => 'GGG',
 );
 
 my $turtle = Data::Turtle->new(
