@@ -22,7 +22,7 @@ GetOptions( \%opts,
     'start=s',
     'distance=i',
     'theta=i',
-    'center=i',
+    'center',
     'width=i',
     'height=i',
 ) or die "Can't get options";
