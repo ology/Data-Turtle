@@ -315,12 +315,9 @@ sub forward {
     $self->x( $x + $xo );
     $self->y( $y + $yo );
 
-    if ( $self->pen_status == 1 ) {
-        return
-            ceil($xo), ceil($yo),
-            ceil($self->x), ceil($self->y),
-            $self->pen_color, $self->pen_size;
-    }
+    return $self->pen_status == 1
+        ? ( ceil($xo), ceil($yo), ceil($self->x), ceil($self->y), $self->pen_color, $self->pen_size )
+        : undef;
 }
 
 =head2 backward
@@ -368,12 +365,9 @@ sub goto {
     $self->x($x);
     $self->y($y);
 
-    if ( $self->pen_status == 1 ) {
-        return
-            ceil($xo), ceil($yo),
-            ceil($self->x), ceil($self->y),
-            $self->pen_color, $self->pen_size;
-    }
+    return $self->pen_status == 1
+        ? ( ceil($xo), ceil($yo), ceil($self->x), ceil($self->y), $self->pen_color, $self->pen_size )
+        : undef;
 }
 
 1;
