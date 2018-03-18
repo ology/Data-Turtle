@@ -32,6 +32,10 @@ my %rule = (
     # Dragon curve: start=FX, distance=10, theta=90
 #    X => 'X+YF+',
 #    Y => '-FX-Y',
+
+    # Sierpiński arrowhead curve: start=F, distance=1, theta=60
+#    F => 'G-F-G',
+#    G => 'F+G+F',
 );
 
 my $turtle = Data::Turtle->new(
@@ -55,6 +59,13 @@ my @statestack;
 
 my %translate = (
     'F' => sub {
+        my @line = $turtle->forward( $motion->{distance} );
+        if ( $turtle->pen_status == 1 && @line ) {
+            $img->setThickness( $line[5] );
+            $img->line( @line[ 0 .. 3 ], $color{ $line[4] } );
+        }
+    },
+    'G' => sub {
         my @line = $turtle->forward( $motion->{distance} );
         if ( $turtle->pen_status == 1 && @line ) {
             $img->setThickness( $line[5] );
