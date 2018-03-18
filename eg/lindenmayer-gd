@@ -13,11 +13,6 @@ my $center   = shift || 0;
 my $width    = shift || 500;
 my $height   = shift || 500;
 
-my $motion = {
-    distance => $distance,
-    theta    => $theta,
-};
-
 my %rule = (
     # Branches: start=X, distance=20, theta=20
 #    X => 'YF[-X][+X]',
@@ -64,21 +59,21 @@ my @statestack;
 
 my %translate = (
     'F' => sub {
-        my @line = $turtle->forward( $motion->{distance} );
+        my @line = $turtle->forward($distance);
         if ( $turtle->pen_status == 1 && @line ) {
             $img->setThickness( $line[5] );
             $img->line( @line[ 0 .. 3 ], $color{ $line[4] } );
         }
     },
     'G' => sub {
-        my @line = $turtle->forward( $motion->{distance} );
+        my @line = $turtle->forward($distance);
         if ( $turtle->pen_status == 1 && @line ) {
             $img->setThickness( $line[5] );
             $img->line( @line[ 0 .. 3 ], $color{ $line[4] } );
         }
     },
-    '-' => sub { $turtle->turn( - $motion->{theta} ) },
-    '+' => sub { $turtle->turn( $motion->{theta} ) },
+    '-' => sub { $turtle->turn( - $theta ) },
+    '+' => sub { $turtle->turn($theta) },
     'M' => sub { $turtle->mirror },
     '[' => sub { push @statestack, [ $turtle->get_state ] },
     ']' => sub { $turtle->set_state( @{ pop @statestack } ) },
