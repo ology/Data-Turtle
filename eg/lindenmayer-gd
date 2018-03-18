@@ -46,6 +46,9 @@ my %rule = (
     # Sierpiński carpet: start=F, distance=4, theta=90
 #    F => 'F+F-F-F-G+F+F+F-F',
 #    G => 'GGG',
+
+    # Koch island: start=F-F-F-F, distance=5, theta=90
+#    F => 'F-F+F+FF-F-F+F',
 );
 
 my $turtle = Data::Turtle->new(
