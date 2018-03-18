@@ -18,7 +18,7 @@ my $motion = {
 };
 
 my %rule = (
-    # Branches: start=X
+    # Branches: start=X, distance=20, theta=20
 #    X => 'YF[-X][+X]',
 #    Y => 'F',
 
