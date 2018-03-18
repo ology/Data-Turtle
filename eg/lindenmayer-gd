@@ -24,8 +24,8 @@ my %rule = (
 #    F => 'F+F-F-F+F',
 
     # Fractal plant: start=X, distance=3, theta=25
-    X => 'F[-X][X]F[-X]+FX',
-    F => 'FF',
+#    X => 'F[-X][X]F[-X]+FX',
+#    F => 'FF',
 
     # Dragon curve: start=FX, distance=10, theta=90
 #    X => 'X+YF+',
@@ -53,6 +53,12 @@ my %rule = (
     # Koch islands and lakes: start=F+F+F+F, distance=5, theta=90
 #    F => 'F+f-FF+F+FF+Ff+FF-f+FF-F-FF-Ff-FFF',
 #    f => 'ffffff',
+
+    # "Grid": start=F-F-F-F, distance=5, theta=90
+#    F => 'FF-F-F-F-FF',
+
+    # Terndrils: start=F-F-F-F, distance=5, theta=90
+#    F => 'FF-F--F-F',
 );
 
 my $turtle = Data::Turtle->new(
