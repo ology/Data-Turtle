@@ -2,6 +2,8 @@
 use strict;
 use warnings;
 
+# https://en.wikipedia.org/wiki/Lindenmayer_System
+
 use Data::Turtle;
 use GD;
 
