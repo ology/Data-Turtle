@@ -1,6 +1,8 @@
 Changes for Data::Turtle:
 
 {{$NEXT}}
+
+0.0106 2018-03-18
     - Improve documentation.
     - Follow perlcritic and fix my conditional returns.
     - Improve eg/lindenmayer-gd a bit.
