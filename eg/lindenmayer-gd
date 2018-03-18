@@ -81,9 +81,7 @@ $img->interlaced('true');
 my @statestack;
 
 my %translate = (
-    'f' => sub {
-        my @line = $turtle->forward($distance);
-    },
+    'f' => sub { $turtle->forward($distance) },
     'F' => sub {
         my @line = $turtle->forward($distance);
         if ( $turtle->pen_status == 1 && @line ) {
