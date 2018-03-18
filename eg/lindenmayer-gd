@@ -9,6 +9,7 @@ my $repetitions = shift || 6;
 my $start       = shift || 'X';
 my $distance    = shift || 3;
 my $theta       = shift || 25;
+my $center      = shift || 0;
 my $width       = shift || 500;
 my $height      = shift || 500;
 
@@ -46,7 +47,7 @@ my $turtle = Data::Turtle->new(
     width  => $width,
     height => $height,
     x      => $width / 2,
-    y      => $height,
+    y      => $center ? $height / 2 : $height,
 );
 
 my $img = GD::Image->new( $width, $height );
