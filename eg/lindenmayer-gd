@@ -49,6 +49,10 @@ my %rule = (
 
     # Koch island: start=F-F-F-F, distance=5, theta=90
 #    F => 'F-F+F+FF-F-F+F',
+
+    # Koch islands and lakes: start=F+F+F+F, distance=5, theta=90
+#    F => 'F+f-FF+F+FF+Ff+FF-f+FF-F-FF-Ff-FFF',
+#    f => 'ffffff',
 );
 
 my $turtle = Data::Turtle->new(
@@ -71,6 +75,9 @@ $img->interlaced('true');
 my @statestack;
 
 my %translate = (
+    'f' => sub {
+        my @line = $turtle->forward($distance);
+    },
     'F' => sub {
         my @line = $turtle->forward($distance);
         if ( $turtle->pen_status == 1 && @line ) {
