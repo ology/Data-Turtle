@@ -36,6 +36,10 @@ my %rule = (
     # Sierpiński arrowhead curve: start=F, distance=1, theta=60
 #    F => 'G-F-G',
 #    G => 'F+G+F',
+
+    # Sierpiński triangle: start=F-G-G, distance=5, theta=120
+#    F => 'F-G+F+G-F',
+#    G => 'GG',
 );
 
 my $turtle = Data::Turtle->new(
