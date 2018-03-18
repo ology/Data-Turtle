@@ -18,12 +18,8 @@ my $motion = {
 };
 
 my %rule = (
-#    A => 'BA',
-#    B => 'AB',
     A => 'GS[-A][+A]',
     G => 'S',
-#    B => 'C',
-#    C => 'A',
 );
 
 my $turtle = Data::Turtle->new(
@@ -63,7 +59,7 @@ my %translate = (
 for ( 1 .. $repetitions ) {
     $string =~ s/./defined($rule{$&}) ? $rule{$&} : $&/eg;
 }
-#warn __LINE__,". String: ","$string\n";
+warn(__PACKAGE__,' L',__LINE__,". String: ",$string,"\n");
 
 for my $command ( split //, $string ) {
     $translate{$command}->() if $translate{$command};
