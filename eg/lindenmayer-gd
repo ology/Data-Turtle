@@ -5,13 +5,13 @@ use warnings;
 use Data::Turtle;
 use GD;
 
-my $repetitions = shift || 6;
-my $start       = shift || 'X';
-my $distance    = shift || 3;
-my $theta       = shift || 25;
-my $center      = shift || 0;
-my $width       = shift || 500;
-my $height      = shift || 500;
+my $repeat   = shift || 6;
+my $start    = shift || 'X';
+my $distance = shift || 3;
+my $theta    = shift || 25;
+my $center   = shift || 0;
+my $width    = shift || 500;
+my $height   = shift || 500;
 
 my $motion = {
     distance => $distance,
@@ -84,7 +84,7 @@ my %translate = (
     ']' => sub { $turtle->set_state( @{ pop @statestack } ) },
 );
 
-for ( 1 .. $repetitions ) {
+for ( 1 .. $repeat ) {
     $start =~ s/./defined($rule{$&}) ? $rule{$&} : $&/eg;
 }
 warn(__PACKAGE__,' L',__LINE__,". String: ",$start,"\n");
