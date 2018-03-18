@@ -18,8 +18,16 @@ my $motion = {
 };
 
 my %rule = (
-    A => 'GS[-A][+A]',
-    G => 'S',
+    # Branches: start=A
+    A => 'GF[-A][+A]',
+    G => 'F',
+
+    # Koch curve: start=F, distance=10, theta=90
+#    F => 'F+F-F-F+F',
+
+    # Fractal plant: start: X, distance=3, theta=25
+#    X => 'F[−X][X]F[−X]+FX',
+#    F => 'FF',
 );
 
 my $turtle = Data::Turtle->new(
@@ -42,7 +50,7 @@ $img->interlaced('true');
 my @statestack;
 
 my %translate = (
-    'S' => sub {
+    'F' => sub {
         my @line = $turtle->forward( $motion->{distance} );
         if ( $turtle->pen_status == 1 && @line ) {
             $img->setThickness( $line[5] );
