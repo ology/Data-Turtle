@@ -88,7 +88,7 @@ my %rule = (
         f => 'ffffff',
     },
 
-    # "Grid": start=F-F-F-F, distance=5, theta=90
+    # Grid: start=F-F-F-F, distance=5, theta=90
     11 => {
         F => 'FF-F-F-F-FF',
     },
