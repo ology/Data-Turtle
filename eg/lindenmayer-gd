@@ -9,6 +9,7 @@ use GD;
 use Getopt::Long;
 
 my %opts = (
+    rule     => 3,
     repeat   => 6,
     start    => 'X',
     distance => 3,
@@ -18,6 +19,7 @@ my %opts = (
     height   => 500,
 );
 GetOptions( \%opts,
+    'rule=i',
     'repeat=i',
     'start=s',
     'distance=i',
@@ -29,48 +31,72 @@ GetOptions( \%opts,
 
 my %rule = (
     # Branches: start=X, distance=20, theta=20
-#    X => 'YF[-X][+X]',
-#    Y => 'F',
+    1 => {
+        X => 'YF[-X][+X]',
+        Y => 'F',
+    },
 
     # Koch curve: start=F, distance=10, theta=90
-#    F => 'F+F-F-F+F',
+    2 => {
+        F => 'F+F-F-F+F',
+    },
 
     # Fractal plant: start=X, distance=3, theta=25
-    X => 'F[-X][X]F[-X]+FX',
-    F => 'FF',
+    3 => {
+        X => 'F[-X][X]F[-X]+FX',
+        F => 'FF',
+    },
 
     # Dragon curve: start=FX, distance=10, theta=90
-#    X => 'X+YF+',
-#    Y => '-FX-Y',
+    4 => {
+        X => 'X+YF+',
+        Y => '-FX-Y',
+    },
 
     # Sierpiński arrowhead curve: start=F, distance=1, theta=60
-#    F => 'G-F-G',
-#    G => 'F+G+F',
+    5 => {
+        F => 'G-F-G',
+        G => 'F+G+F',
+    },
 
     # Sierpiński triangle: start=F-G-G, distance=4, theta=120
-#    F => 'F-G+F+G-F',
-#    G => 'GG',
+    6 => {
+        F => 'F-G+F+G-F',
+        G => 'GG',
+    },
 
     # Koch snowflake: start=F++F++F, , distance=3, theta=60
-#    F => 'F-F++F-F',
-#    X => 'FF',
+    7 => {
+        F => 'F-F++F-F',
+        X => 'FF',
+    },
 
     # Sierpiński carpet: start=F, distance=4, theta=90
-#    F => 'F+F-F-F-G+F+F+F-F',
-#    G => 'GGG',
+    8 => {
+        F => 'F+F-F-F-G+F+F+F-F',
+        G => 'GGG',
+    },
 
     # Koch island: start=F-F-F-F, distance=5, theta=90
-#    F => 'F-F+F+FF-F-F+F',
+    9 => {
+        F => 'F-F+F+FF-F-F+F',
+    },
 
     # Koch islands and lakes: start=F+F+F+F, distance=5, theta=90
-#    F => 'F+f-FF+F+FF+Ff+FF-f+FF-F-FF-Ff-FFF',
-#    f => 'ffffff',
+    10 => {
+        F => 'F+f-FF+F+FF+Ff+FF-f+FF-F-FF-Ff-FFF',
+        f => 'ffffff',
+    },
 
     # "Grid": start=F-F-F-F, distance=5, theta=90
-#    F => 'FF-F-F-F-FF',
+    11 => {
+        F => 'FF-F-F-F-FF',
+    },
 
     # Terndrils: start=F-F-F-F, distance=5, theta=90
-#    F => 'FF-F--F-F',
+    12 => {
+        F => 'FF-F--F-F',
+    },
 );
 
 my $turtle = Data::Turtle->new(
@@ -116,7 +142,7 @@ my %translate = (
 );
 
 for ( 1 .. $opts{repeat} ) {
-    $opts{start} =~ s/(.)/defined($rule{$1}) ? $rule{$1} : $1/eg;
+    $opts{start} =~ s/(.)/defined($rule{ $opts{rule} }{$1}) ? $rule{ $opts{rule} }{$1} : $1/eg;
 }
 warn "$opts{start}\n";
 
