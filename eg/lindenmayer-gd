@@ -82,7 +82,7 @@ my %translate = (
 for ( 1 .. $repeat ) {
     $start =~ s/(.)/defined($rule{$1}) ? $rule{$1} : $1/eg;
 }
-warn(__PACKAGE__,' L',__LINE__,". String: ",$start,"\n");
+warn "$start\n";
 
 for my $command ( split //, $start ) {
     $translate{$command}->() if $translate{$command};
