@@ -24,8 +24,8 @@ my %rule = (
 #    F => 'F+F-F-F+F',
 
     # Fractal plant: start=X, distance=3, theta=25
-#    X => 'F[-X][X]F[-X]+FX',
-#    F => 'FF',
+    X => 'F[-X][X]F[-X]+FX',
+    F => 'FF',
 
     # Dragon curve: start=FX, distance=10, theta=90
 #    X => 'X+YF+',
