@@ -35,8 +35,8 @@ Data::Turtle - Turtle Movement and State Operations
 This module enables basic turtle movement and state operations without requiring
 any particular graphics package.
 
-The methods don't draw anything per se.  They set or output coordinates and
-values for line drawing by your favorite graphics package.
+The methods don't draw anything.  They just set or output coordinates and
+values for drawing by your favorite graphics package.
 
 Please see the F<eg/> distribution directory for example code, with L<GD> and
 L<Imager>.
@@ -376,5 +376,7 @@ __END__
 =head1 SEE ALSO
 
 L<https://metacpan.org/source/YVESP/llg-1.07/Turtle.pm>
+
+L<https://en.wikipedia.org/wiki/Turtle_graphics>
 
 =cut
