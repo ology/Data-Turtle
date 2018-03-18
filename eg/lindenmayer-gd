@@ -6,14 +6,26 @@ use warnings;
 
 use Data::Turtle;
 use GD;
+use Getopt::Long;
 
-my $repeat   = shift || 6;
-my $start    = shift || 'X';
-my $distance = shift || 3;
-my $theta    = shift || 25;
-my $center   = shift || 0;
-my $width    = shift || 500;
-my $height   = shift || 500;
+my %opts = (
+    repeat   => 6,
+    start    => 'X',
+    distance => 3,
+    theta    => 25,
+    center   => 0,
+    width    => 500,
+    height   => 500,
+);
+GetOptions( \%opts,
+    'repeat=i',
+    'start=s',
+    'distance=i',
+    'theta=i',
+    'center=i',
+    'width=i',
+    'height=i',
+) or die "Can't get options";
 
 my %rule = (
     # Branches: start=X, distance=20, theta=20
@@ -62,13 +74,13 @@ my %rule = (
 );
 
 my $turtle = Data::Turtle->new(
-    width  => $width,
-    height => $height,
-    x      => $width / 2,
-    y      => $center ? $height / 2 : $height,
+    width  => $opts{width},
+    height => $opts{height},
+    x      => $opts{width} / 2,
+    y      => $opts{center} ? $opts{height} / 2 : $opts{height},
 );
 
-my $img = GD::Image->new( $width, $height );
+my $img = GD::Image->new( $opts{width}, $opts{height} );
 
 my %color = (
     white => $img->colorAllocate( 255, 255, 255 ),
@@ -81,34 +93,34 @@ $img->interlaced('true');
 my @statestack;
 
 my %translate = (
-    'f' => sub { $turtle->forward($distance) },
+    'f' => sub { $turtle->forward( $opts{distance} ) },
     'F' => sub {
-        my @line = $turtle->forward($distance);
+        my @line = $turtle->forward( $opts{distance} );
         if ( $turtle->pen_status == 1 && @line ) {
             $img->setThickness( $line[5] );
             $img->line( @line[ 0 .. 3 ], $color{ $line[4] } );
         }
     },
     'G' => sub {
-        my @line = $turtle->forward($distance);
+        my @line = $turtle->forward( $opts{distance} );
         if ( $turtle->pen_status == 1 && @line ) {
             $img->setThickness( $line[5] );
             $img->line( @line[ 0 .. 3 ], $color{ $line[4] } );
         }
     },
-    '-' => sub { $turtle->turn( - $theta ) },
-    '+' => sub { $turtle->turn($theta) },
+    '-' => sub { $turtle->turn( - $opts{theta} ) },
+    '+' => sub { $turtle->turn( $opts{theta} ) },
     'M' => sub { $turtle->mirror },
     '[' => sub { push @statestack, [ $turtle->get_state ] },
     ']' => sub { $turtle->set_state( @{ pop @statestack } ) },
 );
 
-for ( 1 .. $repeat ) {
-    $start =~ s/(.)/defined($rule{$1}) ? $rule{$1} : $1/eg;
+for ( 1 .. $opts{repeat} ) {
+    $opts{start} =~ s/(.)/defined($rule{$1}) ? $rule{$1} : $1/eg;
 }
-warn "$start\n";
+warn "$opts{start}\n";
 
-for my $command ( split //, $start ) {
+for my $command ( split //, $opts{start} ) {
     $translate{$command}->() if exists $translate{$command};
 }
 
