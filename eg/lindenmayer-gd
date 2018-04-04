@@ -11,7 +11,6 @@ use Getopt::Long;
 my %opts = (
     rule     => 3,
     repeat   => 6,
-    start    => 'X',
     distance => 3,
     theta    => 25,
     center   => 0,
@@ -21,7 +20,6 @@ my %opts = (
 GetOptions( \%opts,
     'rule=i',
     'repeat=i',
-    'start=s',
     'distance=i',
     'theta=i',
     'center',
@@ -30,74 +28,65 @@ GetOptions( \%opts,
 ) or die "Can't get options";
 
 my %rule = (
-    # Branches: start=X, distance=20, theta=20
-    1 => {
+    1 => { # Branches: distance=20, theta=20
+        axiom => 'X',
         X => 'YF[-X][+X]',
         Y => 'F',
     },
-
-    # Koch curve: start=F, distance=10, theta=90
-    2 => {
+    2 => { # Koch curve: distance=10, theta=90
+        axiom => 'F',
         F => 'F+F-F-F+F',
     },
-
-    # Fractal plant: start=X, distance=3, theta=25
-    3 => {
+    3 => { # Fractal plant: distance=3, theta=25
+        axiom => 'X',
         X => 'F[-X][X]F[-X]+FX',
         F => 'FF',
     },
-
-    # Dragon curve: start=FX, distance=10, theta=90
-    4 => {
+    4 => { # Dragon curve: distance=10, theta=90
+        axiom => 'FX',
         X => 'X+YF+',
         Y => '-FX-Y',
     },
-
-    # Sierpiński arrowhead curve: start=F, distance=1, theta=60
-    5 => {
+    5 => { # Sierpiński arrowhead curve: distance=1, theta=60
+        axiom => 'F',
         F => 'G-F-G',
         G => 'F+G+F',
     },
-
-    # Sierpiński triangle: start=F-G-G, distance=4, theta=120
-    6 => {
+    6 => { # Sierpiński triangle: distance=4, theta=120
+        axiom => 'F-G-G',
         F => 'F-G+F+G-F',
         G => 'GG',
     },
-
-    # Koch snowflake: start=F++F++F, , distance=3, theta=60
-    7 => {
+    7 => { # Koch snowflake: distance=3, theta=60
+        axiom => 'F++F++F',
         F => 'F-F++F-F',
         X => 'FF',
     },
-
-    # Sierpiński carpet: start=F, distance=4, theta=90
-    8 => {
+    8 => { # Sierpiński carpet: distance=4, theta=90
+        axiom => 'F',
         F => 'F+F-F-F-G+F+F+F-F',
         G => 'GGG',
     },
-
-    # Koch island: start=F-F-F-F, distance=5, theta=90
-    9 => {
+    9 => { # Koch island: distance=5, theta=90
+        axiom => 'F-F-F-F',
         F => 'F-F+F+FF-F-F+F',
     },
-
-    # Koch islands and lakes: start=F+F+F+F, distance=5, theta=90
-    10 => {
+    10 => { # Koch islands and lakes: distance=5, theta=90
+        axiom => 'F+F+F+F',
         F => 'F+f-FF+F+FF+Ff+FF-f+FF-F-FF-Ff-FFF',
         f => 'ffffff',
     },
-
-    # Grid: start=F-F-F-F, distance=5, theta=90
-    11 => {
+    11 => { # Grid: distance=5, theta=90
+        axiom => 'F-F-F-F',
         F => 'FF-F-F-F-FF',
     },
-
-    # Terndrils: start=F-F-F-F, distance=5, theta=90
-    12 => {
+    12 => { # Terndrils: distance=5, theta=90
+        axiom => 'F-F-F-F',
         F => 'FF-F--F-F',
     },
 );
+
+my $string = $rule{ $opts{rule} }{axiom};
 
 my $turtle = Data::Turtle->new(
     width  => $opts{width},
@@ -130,11 +119,11 @@ my %translate = (
 );
 
 for ( 1 .. $opts{repeat} ) {
-    $opts{start} =~ s/(.)/defined($rule{ $opts{rule} }{$1}) ? $rule{ $opts{rule} }{$1} : $1/eg;
+    $string =~ s/(.)/defined($rule{ $opts{rule} }{$1}) ? $rule{ $opts{rule} }{$1} : $1/eg;
 }
-warn "$opts{start}\n";
+warn "$string\n";
 
-for my $command ( split //, $opts{start} ) {
+for my $command ( split //, $string ) {
     $translate{$command}->() if exists $translate{$command};
 }
 
