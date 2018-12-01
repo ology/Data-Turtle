@@ -1,5 +1,7 @@
 package Data::Turtle;
 
+# ABSTRACT: Turtle Movement and State Operations
+
 use Moo;
 use POSIX qw( ceil );
 
