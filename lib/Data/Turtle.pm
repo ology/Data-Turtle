@@ -14,7 +14,7 @@ use constant K => 3.14159265358979323846 / 180;
   use Data::Turtle;
   my $turtle = Data::Turtle->new;
   $turtle->pen_up;
-  $turtle->turn(45);
+  $turtle->right(45);
   $turtle->forward(10);
   $turtle->goto(100, 100);
   $turtle->mirror;
@@ -198,20 +198,6 @@ sub pen_down {
     $self->pen_status(1);
 }
 
-=head2 turn
-
-  $turtle->right($degrees);
-
-Set the heading to the given degrees.
-
-=cut
-
-sub turn {
-    my $self = shift;
-    my $degrees = shift // 0;
-    $self->heading( ( $self->heading + $degrees ) % 360 );
-}
-
 =head2 right
 
   $turtle->right($degrees);
@@ -222,7 +208,8 @@ Turn to the right.
 
 sub right {
     my $self = shift;
-    $self->turn(@_);
+    my $degrees = shift // 0;
+    $self->heading( ( $self->heading + $degrees ) % 360 );
 }
 
 =head2 left
