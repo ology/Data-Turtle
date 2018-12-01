@@ -2,6 +2,8 @@ Changes for Data::Turtle:
 
 {{$NEXT}}
     - Improve eg/lindenmayer-gd a bit more.
+    - Drop redundant NAME section.
+    - Update the SEE ALSO section.
 
 0.0106 2018-03-18
     - Improve documentation.
