@@ -371,6 +371,10 @@ __END__
 
 =head1 SEE ALSO
 
+L<Moo>
+
+L<POSIX>
+
 L<https://metacpan.org/source/YVESP/llg-1.07/Turtle.pm>
 
 L<https://en.wikipedia.org/wiki/Turtle_graphics>
