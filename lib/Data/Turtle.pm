@@ -7,10 +7,6 @@ our $VERSION = '0.0106';
 
 use constant K => 3.14159265358979323846 / 180;
 
-=head1 NAME
-
-Data::Turtle - Turtle Movement and State Operations
-
 =head1 SYNOPSIS
 
   use Data::Turtle;
