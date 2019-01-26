@@ -24,7 +24,7 @@ use constant K => 3.14159265358979323846 / 180;
   $turtle->set_state($x, $y, $heading, $status, $color, $size);
   for my $i (1 .. 4) {
       my @line = $turtle->forward(50);
-      # If there is a line and the pen is down, draw it!
+      # if (@line) { ... # Draw it!
       $turtle->right(90);
   }
 
@@ -36,8 +36,8 @@ any particular graphics package.
 The methods don't draw anything.  They just set or output coordinates and
 values for drawing by your favorite graphics package.
 
-Please see the F<eg/> distribution directory for example code, with L<GD> and
-L<Imager>.
+For examples with L<GD> and L<Imager>, please see the files in the F<eg/>
+distribution directory.
 
 =cut
 
@@ -60,8 +60,8 @@ sub _init_heading {
 
 =head2 new
 
-  Data::Turtle->new();
-  Data::Turtle->new(
+  $turtle = Data::Turtle->new();
+  $turtle = Data::Turtle->new(
     width      => $width,
     height     => $height,
     x          => $x0,
@@ -136,7 +136,7 @@ has heading => (
 
 Is the pen is up or down?  Default: 1 (down position)
 
-Pen properties.  Defaults: pen_color = the string 'black', pen_size = 1 (pixel)
+Pen properties.  Defaults: pen_color = the string 'black', pen_size = 1
 
 =back
 
@@ -230,7 +230,7 @@ sub left {
 
   @pos = $turtle->position;
 
-Return the current pen position as a list of the x and y values.
+Return the current pen position as a list of x and y.
 
 =cut
 
@@ -283,7 +283,10 @@ sub set_state {
 
   @line = $turtle->forward($steps);
 
-Move forward the given number of steps.
+Move forward the given number of steps.  If the pen is down, a list defining a
+line is returned with these values:
+
+  x0, y0, x, y, pen_color, pen_size
 
 =cut
 
@@ -309,7 +312,10 @@ sub forward {
 
   @line = $turtle->backward($steps);
 
-Move backward the given number of steps.
+Move backward the given number of steps.  If the pen is down, a list defining a
+line is returned with these values:
+
+  x0, y0, x, y, pen_color, pen_size
 
 =cut
 
@@ -323,7 +329,7 @@ sub backward {
 
   $turtle->mirror;
 
-Reflect the heading by multiplying by -1.
+Reflect the heading (by multiplying by -1).
 
 =cut
 
@@ -336,7 +342,10 @@ sub mirror {
 
   @line = $turtle->goto( $x, $y );
 
-Move the pen to the given coordinate.
+Move the pen to the given coordinate.  If the pen is down, a list defining a
+line is returned with these values:
+
+  x0, y0, x, y, pen_color, pen_size
 
 =cut
 
