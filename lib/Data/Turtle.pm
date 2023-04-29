@@ -3,7 +3,7 @@ package Data::Turtle;
 # ABSTRACT: Turtle Movement and State Operations
 
 use Moo;
-use Math::Trig qw(:pi);
+use Math::Trig qw( :pi );
 use POSIX qw( ceil );
 
 our $VERSION = '0.0201';
