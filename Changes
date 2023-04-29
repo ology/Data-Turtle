@@ -2,6 +2,7 @@ Changes for Data::Turtle:
 
 {{$NEXT}}
     - Improve the eg/* code.
+    - Add the eg/synopsis-svg program.
 
 0.0201 2019-01-26
     - Improve documentation.
