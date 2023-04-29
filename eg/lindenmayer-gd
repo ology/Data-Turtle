@@ -4,9 +4,9 @@ use warnings;
 
 # https://en.wikipedia.org/wiki/Lindenmayer_System
 
-use Data::Turtle;
-use GD;
-use Getopt::Long;
+use Data::Turtle ();
+use GD ();
+use Getopt::Long qw(GetOptions);
 
 my %opts = (
     rule     => 3,
