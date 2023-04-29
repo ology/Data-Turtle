@@ -1,6 +1,7 @@
 Changes for Data::Turtle:
 
 {{$NEXT}}
+    - Improve the eg/* code.
 
 0.0201 2019-01-26
     - Improve documentation.
