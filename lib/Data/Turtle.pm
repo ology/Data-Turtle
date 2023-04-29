@@ -3,8 +3,8 @@ package Data::Turtle;
 # ABSTRACT: Turtle Movement and State Operations
 
 use Moo;
-use Math::Trig qw( :pi );
-use POSIX qw( ceil );
+use Math::Trig qw(:pi);
+use POSIX qw(ceil);
 
 our $VERSION = '0.0201';
 
@@ -61,7 +61,7 @@ sub _init_heading {
 
 =head2 new
 
-  $turtle = Data::Turtle->new();
+  $turtle = Data::Turtle->new;
   $turtle = Data::Turtle->new(
     width      => $width,
     height     => $height,
@@ -210,7 +210,7 @@ Turn to the right.
 sub right {
     my $self = shift;
     my $degrees = shift // 0;
-    $self->heading( ( $self->heading + $degrees ) % 360 );
+    $self->heading(($self->heading + $degrees) % 360);
 }
 
 =head2 left
@@ -224,7 +224,7 @@ Turn to the left.
 sub left {
     my $self = shift;
     my $degrees = shift // 0;
-    $self->heading( ( $self->heading - $degrees ) % 360 );
+    $self->heading(($self->heading - $degrees) % 360);
 }
 
 =head2 position
@@ -271,7 +271,7 @@ Set the turtle state with the given parameters.
 
 sub set_state {
     my $self = shift;
-    my ( $x, $y, $heading, $pen_status, $pen_color, $pen_size ) = @_;
+    my ($x, $y, $heading, $pen_status, $pen_color, $pen_size) = @_;
     $self->x($x);
     $self->y($y);
     $self->heading($heading);
@@ -295,14 +295,14 @@ sub forward {
     my $self = shift;
     my $step = shift // 1;
 
-    my $x = $step * cos( $self->heading * K );
-    my $y = $step * sin( $self->heading * K );
+    my $x = $step * cos($self->heading * K);
+    my $y = $step * sin($self->heading * K);
 
     my $xo = $self->x;
     my $yo = $self->y;
 
-    $self->x( $x + $xo );
-    $self->y( $y + $yo );
+    $self->x($x + $xo);
+    $self->y($y + $yo);
 
     return $self->pen_status == 1
         ? ( ceil($xo), ceil($yo), ceil($self->x), ceil($self->y), $self->pen_color, $self->pen_size )
@@ -323,7 +323,7 @@ line is returned with these values:
 sub backward {
     my $self = shift;
     my $step = shift;
-    $self->forward( - $step )
+    $self->forward(-$step)
 }
 
 =head2 mirror
@@ -336,12 +336,12 @@ Reflect the heading (by multiplying by -1).
 
 sub mirror {
     my $self = shift;
-    $self->heading( $self->heading * -1 );
+    $self->heading($self->heading * -1);
 }
 
 =head2 goto
 
-  @line = $turtle->goto( $x, $y );
+  @line = $turtle->goto($x, $y);
 
 Move the pen to the given coordinate.  If the pen is down, a list defining a
 line is returned with these values:
@@ -352,7 +352,7 @@ line is returned with these values:
 
 sub goto {
     my $self = shift;
-    my ( $x, $y ) = @_;
+    my ($x, $y) = @_;
 
     my $xo = $self->x;
     my $yo = $self->y;
@@ -372,7 +372,11 @@ __END__
 
 L<Moo>
 
+L<Math::Trig>
+
 L<POSIX>
+
+L<GD::Simple> has built-in turtle graphics
 
 L<https://metacpan.org/source/YVESP/llg-1.07/Turtle.pm>
 
