@@ -6,7 +6,7 @@ use Moo;
 use Math::Trig qw(:pi);
 use POSIX qw(ceil);
 
-our $VERSION = '0.0201';
+our $VERSION = '0.0202';
 
 use constant K => pi / 180;
 
