@@ -1,6 +1,9 @@
 Changes for Data::Turtle:
 
 {{$NEXT}}
+    - Fix the SYNOPSIS yet again. Argh!
+
+0.0205 2023-12-26
     - Fix the "draw it!" condition in examples.
 
 0.0204 2023-12-26
