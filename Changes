@@ -1,7 +1,7 @@
 Changes for Data::Turtle:
 
 {{$NEXT}}
-    - Attempt to improve documentation...
+    - Improve documentation.
 
 0.0206 2023-12-26
     - Fix the SYNOPSIS yet again. Argh!
