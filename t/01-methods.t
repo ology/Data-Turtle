@@ -8,9 +8,12 @@ use_ok 'Data::Turtle';
 
 my $t = new_ok 'Data::Turtle';
 
+my @x = $t->get_state;
+is_deeply \@x, [250,250,270,1,'black',1], 'get_state';
+
 $t->forward(10);
 
-my @x = $t->position;
+@x = $t->position;
 is_deeply \@x, [250,240], 'forward x,y';
 
 $t->backward(10);
