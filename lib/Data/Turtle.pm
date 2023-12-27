@@ -6,14 +6,16 @@ use Moo;
 use Math::Trig qw(:pi);
 use POSIX qw(ceil);
 
-our $VERSION = '0.0202';
+our $VERSION = '0.0203';
 
 use constant K => pi / 180;
 
 =head1 SYNOPSIS
 
   use Data::Turtle;
+
   my $turtle = Data::Turtle->new;
+
   $turtle->pen_up;
   $turtle->right(45);
   $turtle->forward(10);
@@ -21,8 +23,10 @@ use constant K => pi / 180;
   $turtle->mirror;
   $turtle->backward(10);
   $turtle->pen_down;
+
   my ($x, $y, $heading, $status, $color, $size) = $turtle->get_state;
   $turtle->set_state($x, $y, $heading, $status, $color, $size);
+
   for my $i (1 .. 4) {
       my @line = $turtle->forward(50);
       # if (@line) { ... # Draw it!
