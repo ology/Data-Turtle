@@ -289,7 +289,7 @@ sub set_state {
   @line = $turtle->forward($steps);
 
 Move forward the given number of steps, and return a list defining a
-line is returned with these values:
+line with these values:
 
   x0, y0, x, y, pen_color, pen_size
 
@@ -318,7 +318,7 @@ sub forward {
   @line = $turtle->backward($steps);
 
 Move backward the given number of steps, and return a list defining a
-line is returned with these values:
+line with these values:
 
   x0, y0, x, y, pen_color, pen_size
 
@@ -348,7 +348,7 @@ sub mirror {
   @line = $turtle->goto($x, $y);
 
 Move the pen to the given coordinate, and return a list defining a
-line is returned with these values:
+line with these values:
 
   x0, y0, x, y, pen_color, pen_size
 
