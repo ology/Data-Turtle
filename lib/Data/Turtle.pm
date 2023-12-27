@@ -31,14 +31,14 @@ use constant K => pi / 180;
 
 =head1 DESCRIPTION
 
-This module enables basic turtle movement and state operations without requiring
-any particular graphics package.
+This module enables basic turtle movement and state operations without
+requiring any particular graphics package.
 
-The methods don't draw anything.  They just set or output coordinates and
-values for drawing by your favorite graphics package.
+The methods don't draw anything.  They just set or output coordinates
+and values for drawing by your favorite graphics package.
 
-For examples with L<GD> and L<Imager>, please see the files in the F<eg/>
-distribution directory.
+For examples with L<GD> and L<Imager>, please see the files in the
+F<eg/> distribution directory.
 
 =cut
 
@@ -304,7 +304,9 @@ sub forward {
     $self->x($x + $xo);
     $self->y($y + $yo);
 
-    return ceil($xo), ceil($yo), ceil($self->x), ceil($self->y), $self->pen_color, $self->pen_size;
+    return ceil($xo), ceil($yo),
+        ceil($self->x), ceil($self->y),
+        $self->pen_color, $self->pen_size;
 }
 
 =head2 backward
@@ -358,7 +360,9 @@ sub goto {
     $self->x($x);
     $self->y($y);
 
-    return ceil($xo), ceil($yo), ceil($self->x), ceil($self->y), $self->pen_color, $self->pen_size;
+    return ceil($xo), ceil($yo),
+        ceil($self->x), ceil($self->y),
+        $self->pen_color, $self->pen_size;
 }
 
 1;
