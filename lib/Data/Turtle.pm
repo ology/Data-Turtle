@@ -29,7 +29,7 @@ use constant K => pi / 180;
 
   for my $i (1 .. 4) {
       my @line = $turtle->forward(50);
-      if ($turtle->pen_down) { ... # Draw it!
+      if ($turtle->pen_down) { # Draw it!
           $turtle->right(90);
           # ...
       }
