@@ -30,9 +30,9 @@ use constant K => pi / 180;
   for my $i (1 .. 4) {
       my @line = $turtle->forward(50);
       if ($turtle->pen_down) { # Draw it!
-          $turtle->right(90);
-          # ...
+          # ...insert your favorite graphics method...
       }
+      $turtle->right(90);
   }
 
 =head1 DESCRIPTION
