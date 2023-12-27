@@ -284,7 +284,7 @@ sub set_state {
 
   @line = $turtle->forward($steps);
 
-Move forward the given number of steps.  If the pen is down, a list defining a
+Move forward the given number of steps, and return a list defining a
 line is returned with these values:
 
   x0, y0, x, y, pen_color, pen_size
@@ -304,16 +304,14 @@ sub forward {
     $self->x($x + $xo);
     $self->y($y + $yo);
 
-    return $self->pen_status == 1
-        ? ( ceil($xo), ceil($yo), ceil($self->x), ceil($self->y), $self->pen_color, $self->pen_size )
-        : undef;
+    return ceil($xo), ceil($yo), ceil($self->x), ceil($self->y), $self->pen_color, $self->pen_size;
 }
 
 =head2 backward
 
   @line = $turtle->backward($steps);
 
-Move backward the given number of steps.  If the pen is down, a list defining a
+Move backward the given number of steps, and return a list defining a
 line is returned with these values:
 
   x0, y0, x, y, pen_color, pen_size
@@ -343,7 +341,7 @@ sub mirror {
 
   @line = $turtle->goto($x, $y);
 
-Move the pen to the given coordinate.  If the pen is down, a list defining a
+Move the pen to the given coordinate, and return a list defining a
 line is returned with these values:
 
   x0, y0, x, y, pen_color, pen_size
@@ -360,9 +358,22 @@ sub goto {
     $self->x($x);
     $self->y($y);
 
-    return $self->pen_status == 1
-        ? ( ceil($xo), ceil($yo), ceil($self->x), ceil($self->y), $self->pen_color, $self->pen_size )
-        : undef;
+    return ceil($xo), ceil($yo), ceil($self->x), ceil($self->y), $self->pen_color, $self->pen_size;
+}
+
+=head2 arc
+
+  @arc = $turtle->arc($x, $y, $width, $height, $start, $end);
+
+Traverse an arc, circle, ellipse, or partial section.
+
+  x, y, width, height, start, end
+
+=cut
+
+sub arc {
+    my $self = shift;
+    my $step = shift // 1;
 }
 
 1;
