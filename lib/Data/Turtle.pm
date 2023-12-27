@@ -295,6 +295,13 @@ line with these values:
 
   x0, y0, x, y, pen_color, pen_size
 
+Where a step is given by
+
+    x = step * cos(heading * K);
+    y = step * sin(heading * K);
+
+and C<K> is C<pi / 180>.
+
 =cut
 
 sub forward {
