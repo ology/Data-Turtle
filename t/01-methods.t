@@ -6,9 +6,10 @@ use Test::More;
 
 use_ok 'Data::Turtle';
 
-my $t = Data::Turtle->new;
+my $t = new_ok 'Data::Turtle';
 
 $t->forward(10);
+
 my @x = $t->position;
 is_deeply \@x, [250,240], 'forward x,y';
 
