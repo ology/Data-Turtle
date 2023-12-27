@@ -361,21 +361,6 @@ sub goto {
     return ceil($xo), ceil($yo), ceil($self->x), ceil($self->y), $self->pen_color, $self->pen_size;
 }
 
-=head2 arc
-
-  @arc = $turtle->arc($x, $y, $width, $height, $start, $end);
-
-Traverse an arc, circle, ellipse, or partial section.
-
-  x, y, width, height, start, end
-
-=cut
-
-sub arc {
-    my $self = shift;
-    my $step = shift // 1;
-}
-
 1;
 __END__
 
