@@ -1,6 +1,8 @@
 Changes for Data::Turtle:
 
 {{$NEXT}}
+
+0.0206 2023-12-26
     - Fix the SYNOPSIS yet again. Argh!
 
 0.0205 2023-12-26
