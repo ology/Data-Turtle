@@ -141,9 +141,12 @@ has heading => (
 
 =item * pen_status, pen_color, pen_size
 
-Is the pen is up or down? Default: 1 (down position)
+Is the pen is up or down? Default: C<1> (down position)
 
-Pen properties. Defaults: pen_color = the string 'black', pen_size = 1
+Pen properties. Defaults:
+
+  pen_color = black
+  pen_size  = 1
 
 =back
 
@@ -297,8 +300,8 @@ line with these values:
 
 Where a step is given by
 
-    x = step * cos(heading * K);
-    y = step * sin(heading * K);
+    x = step * cos(heading * K)
+    y = step * sin(heading * K)
 
 and C<K> is C<pi / 180>.
 
