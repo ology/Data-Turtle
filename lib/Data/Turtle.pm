@@ -38,7 +38,7 @@ use constant K => pi / 180;
 This module enables basic turtle movement and state operations without
 requiring any particular graphics package.
 
-The methods don't draw anything.  They just set or output coordinates
+The methods don't draw anything. They just set or output coordinates
 and values for drawing by your favorite graphics package.
 
 For examples with L<GD> and L<Imager>, please see the files in the
@@ -85,7 +85,7 @@ Attributes:
 
 =item * width, height
 
-Drawing surface dimensions.  Defaults:
+Drawing surface dimensions. Defaults:
 
   width  = 500
   height = 500
@@ -108,7 +108,7 @@ has height => (
 
 =item * x, y, heading
 
-Coordinate parameters.  Defaults:
+Coordinate parameters. Defaults:
 
   x       = width / 2
   y       = height / 2
@@ -139,9 +139,9 @@ has heading => (
 
 =item * pen_status, pen_color, pen_size
 
-Is the pen is up or down?  Default: 1 (down position)
+Is the pen is up or down? Default: 1 (down position)
 
-Pen properties.  Defaults: pen_color = the string 'black', pen_size = 1
+Pen properties. Defaults: pen_color = the string 'black', pen_size = 1
 
 =back
 
